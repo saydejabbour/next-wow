@@ -1,5 +1,5 @@
 {
-  "name": "@moondev/next-wow",
+  "name": "next-wow-react",
   "version": "1.0.2",
   "description": "React-based WOW.js — Reveal animations on scroll for React and Next.js",
   "main": "dist/index.js",          
@@ -32,4 +32,5 @@
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0"
   }
+  
 }

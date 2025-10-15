@@ -1,6 +1,8 @@
 "use client";
 import { useEffect } from "react";
-import WOW from "@moondev/next-wow";
+import WOW from "next-wow-react";
+
+
 
 export default function Home() {
   useEffect(() => {
