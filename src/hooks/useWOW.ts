@@ -1,20 +1,21 @@
 // src/hooks/useWOW.ts
 import { useEffect, useRef } from "react";
-import WOW, { WOWOptions } from "../wow";
+import { WOW, type WOWOptions } from "../wow";
 
-export default function useWOW(options?: WOWOptions) {
+export function useWOW(options?: WOWOptions) {
   const wowRef = useRef<WOW | null>(null);
 
   useEffect(() => {
-    const wow = new WOW(options);
-    wow.init();
-    wowRef.current = wow;
+    if (typeof window === "undefined") return;
+
+    wowRef.current = new WOW(options);
+    wowRef.current.init();
+
     return () => {
-      wow.destroy();
+      wowRef.current?.stop();
       wowRef.current = null;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return wowRef;
+  return wowRef.current;
 }

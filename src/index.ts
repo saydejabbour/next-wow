@@ -1,8 +1,9 @@
 // src/index.ts
-import WOW, { WOWOptions } from "./wow";
-import useWOW from "./hooks/useWOW";
-import { WOWProvider } from "./components/WOWProvider";
+"use client";
+export { WOW } from "./wow";
+export { WOWProvider } from "./components/WOWProvider";
+export { useWOW } from "./hooks/useWOW";
 
-export type { WOWOptions };
-export { useWOW, WOWProvider };
-export default WOW;
+// Default export to match classic WOW.js usage
+import { WOW as WOWClass } from "./wow";
+export default WOWClass;
