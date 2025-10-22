@@ -8,7 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@moondev/next-wow": "file:../moondev-next-wow-2.0.0.tgz",
+    "@moondev/next-wow": "^2.0.1",
     "animate.css": "^4",
     "next": "latest",
     "react": "19.1.0",
