@@ -1,12 +1,16 @@
-import "animate.css/animate.min.css";
-import "./globals.css";
-
-export const metadata = { title: "Next WoW Demo" };
+// example/app/layout.tsx
+import "animate.css";
+import { WOWProvider } from "@moondev/next-wow";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <WOWProvider options={{ animateClass: "animate__animated" }}>
+          {children}
+        </WOWProvider>
+      </body>
     </html>
   );
 }
+

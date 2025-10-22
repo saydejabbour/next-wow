@@ -1,137 +1,112 @@
-# 🌟 Next Wow React
+# 🌟 Next WoW
 
-[![npm version](https://img.shields.io/npm/v/next-wow-react?color=brightgreen)](https://www.npmjs.com/package/next-wow-react)
-[![GitHub Repo](https://img.shields.io/badge/github-next--wow-blue?logo=github)](https://github.com/saydejabbour/next-wow)
-[![Live Demo](https://img.shields.io/badge/demo-vercel-success?logo=vercel)](https://next-wow-zeta.vercel.app)
-[![License](https://img.shields.io/badge/license-MIT-lightgrey)](./LICENSE)
+React-based version of [WOW.js](https://wowjs.uk/) — reveal animations on scroll, rebuilt for React and Next.js.
 
-> ⚡ A lightweight React + Next.js adaptation of [WOW.js](https://wowjs.uk) for scroll-based reveal animations — rebuilt for modern frameworks with no jQuery dependencies.
+> 💡 **Next WoW is a React clone of the original [WOW.js](https://wowjs.uk/).**  
+> It uses the **same API, same usage, and same configuration options**, implemented with React hooks and modern TypeScript (no jQuery).
 
 ---
 
-## 🚀 Live Demo
-👉 [View the Demo on Vercel](https://next-wow-zeta.vercel.app)
-
----
-
-## 📦 Installation
-
-Install the package and `animate.css` (for animations):
+## 🚀 Installation
 
 ```bash
-npm install next-wow-react animate.css
-or with yarn:
+npm install @moondev/next-wow
+npm install animate.css
+Import Animate.css once in your app:
 
-bash
+ts
 Copy code
-yarn add next-wow-react animate.css
-🧠 Usage Example
+import "animate.css";
+⚡ Basic Usage (identical to WOW.js)
 tsx
 Copy code
 "use client";
 import { useEffect } from "react";
-import WOW from "next-wow-react";
+import WOW from "@moondev/next-wow";
 import "animate.css";
 
-export default function Home() {
+export default function Page() {
   useEffect(() => {
     const wow = new WOW();
     wow.init();
   }, []);
 
   return (
-    <main style={{ padding: 40, textAlign: "center" }}>
-      <h1 style={{ fontSize: 36, fontWeight: 700 }}>Next Wow Demo</h1>
-
-      {/* Spacer for scrolling */}
+    <main className="p-10 space-y-10 text-center">
+      <h1 className="text-4xl font-bold">Next WoW Demo</h1>
       <div style={{ height: 600 }} />
-
-      <div className="wow fadeInUp" data-wow-delay="0.2s">
-        React animation using Animate.css + WOW.js!
+      <div className="wow animate__fadeInUp" data-wow-delay="0.2s" style={{ fontSize: 22 }}>
+        Scroll to see animations
       </div>
     </main>
   );
 }
-✅ Note:
-Make sure you import "animate.css" at the top of your main layout or page.
+Using Animate.css v4? Use the animate__ classes.
+Using v3? Use animated + fadeInUp and omit the provider option below.
 
-✨ Features
-🚫 No jQuery — written in pure TypeScript
-
-🧱 Fully compatible with Next.js 13+ App Router
-
-⚡ Simple setup, single line integration
-
-💨 Works with Animate.css classes
-
-🎯 Lightweight and production-ready
-
-📄 Open Source (MIT License)
-
-🧩 Configuration Options
-next-wow-react supports the same configuration parameters as WOW.js.
-
-You can customize behavior via the WOW constructor:
+🧰 Using the Provider
+If you’re on Animate.css v4, set the animation class prefix:
 
 tsx
 Copy code
-const wow = new WOW({
-  boxClass: "wow",
-  animateClass: "animated",
-  offset: 100,
-  mobile: true,
-  live: true,
-});
-wow.init();
-Option	Default	Description
-boxClass	"wow"	CSS class to reveal when scrolled into view
-animateClass	"animated"	Animation class from Animate.css
-offset	0	Distance to start the animation (px)
-mobile	true	Trigger animations on mobile devices
-live	true	Act on asynchronously loaded content
+// app/layout.tsx
+import "animate.css";
+import { WOWProvider } from "@moondev/next-wow";
 
-🌐 Links
-🧰 NPM: https://www.npmjs.com/package/next-wow-react
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>
+        <WOWProvider options={{ animateClass: "animate__animated" }}>
+          {children}
+        </WOWProvider>
+      </body>
+    </html>
+  );
+}
+🔧 API (identical to WOW.js)
+Option	Type	Default	Description
+boxClass	string	"wow"	Class name to target
+animateClass	string	"animated"	Animation class name (Animate.css)
+offset	number	0	Distance from bottom of viewport
+mobile	boolean	true	Trigger on mobile devices
+live	boolean	true	Auto-observe new elements
+callback	function	null	Called when animation starts
 
-💻 GitHub: https://github.com/saydejabbour/next-wow
+📚 Original docs: WOW.js documentation — this package mirrors the same options.
 
-🎨 Demo: https://next-wow-zeta.vercel.app
+🧪 Demo
+Example app lives in /example (Next.js).
 
-🛠️ Development
-If you want to modify or contribute:
+On Vercel set Root Directory to example.
 
+🛠 Development
 bash
 Copy code
-# Clone the repo
 git clone https://github.com/saydejabbour/next-wow.git
-
-# Navigate to the directory
 cd next-wow
-
-# Install dependencies
-npm install
-
-# Run the example locally
-cd example
-npm run dev
+npm i
+npm run build
+cd example && npm i && npm run dev
 📜 License & Credits
-This project is released under the MIT License.
-
-Original Source Code: © MoonDev
-Package Adaptation & NPM Publishing: © Sayde Jabbour
-
-Special thanks to MoonDev for the base implementation and inspiration behind this React adaptation.
-
-⭐ Support
-If you find this package useful, please give it a ⭐ on GitHub — it helps others discover it!
+MIT © MoonDev
+Inspired by and API-compatible with WOW.js.
 
 yaml
 Copy code
 
 ---
 
-Would you like me to also generate a **short GitHub “About” section + tags** (so you can paste them in your repository sidebar for SEO and discoverability)?
+## 3) Build & test one last time
 
+```powershell
+# root
+Remove-Item -Recurse -Force dist
+npm run build
+npm pack
 
-
-
+# example
+cd example
+npm uninstall next-wow-react  # if still present
+npm i ..\moondev-next-wow-2.0.0.tgz
+npm run dev

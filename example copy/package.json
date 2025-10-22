@@ -4,23 +4,22 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start"
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "eslint"
   },
   "dependencies": {
-    "@moondev/next-wow": "file:../moondev-next-wow-2.0.0.tgz",
-    "animate.css": "^4",
-    "next": "latest",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "next": "15.5.5"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
+    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.5",
-    "typescript": "^5"
+    "@eslint/eslintrc": "^3"
   }
 }
