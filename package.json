@@ -1,9 +1,9 @@
 {
-  "name": "next-wow-react",
-  "version": "1.0.2",
+  "name": "@moondev/next-wow",
+  "version": "2.0.0",
   "description": "React-based WOW.js — Reveal animations on scroll for React and Next.js",
-  "main": "dist/index.js",          
-  "module": "dist/index.mjs",       
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
@@ -12,7 +12,7 @@
       "require": "./dist/index.js"
     }
   },
-  "files": ["dist"],
+  "files": ["dist", "README.md", "LICENSE"],
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "dev": "tsup src/index.ts --watch",
@@ -22,6 +22,14 @@
   "keywords": ["react", "wowjs", "scroll animation", "nextjs", "animate.css"],
   "author": "MoonDev",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saydejabbour/next-wow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/saydejabbour/next-wow/issues"
+  },
+  "homepage": "https://github.com/saydejabbour/next-wow#readme",
   "peerDependencies": {
     "react": "^18 || ^19",
     "react-dom": "^18 || ^19"
@@ -31,6 +39,8 @@
     "tsup": "^8",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
-  
 }
