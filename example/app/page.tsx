@@ -5,34 +5,78 @@ import { useWOW } from "@moondev/next-wow";
 import styles from "./page.module.css";
 
 export default function Home() {
-  const wow = useWOW({ animateClass: "animate__animated" });
+  // initialize WOW (Animate.css is auto-imported by the package)
+  useWOW({ animateClass: "animate__animated" });
 
   return (
     <main className={styles.container}>
       {/* HERO */}
-      <section className={`${styles.heroWrap} wow animate__fadeIn`} data-wow-duration="0.7s">
+      <section
+        className={`${styles.heroWrap} wow animate__fadeIn`}
+        data-wow-duration="0.7s"
+      >
         <div className={styles.hero}>
-          <h1 className="wow animate__fadeInUp" data-wow-delay="0.05s" style={{ fontSize: 44, fontWeight: 900 }}>
+          <h1
+            className="wow animate__fadeInUp"
+            data-wow-delay="0.05s"
+            style={{ fontSize: 44, fontWeight: 900 }}
+          >
             <span className={styles.gradientText}>Next WoW</span>
           </h1>
-          <p className={`${styles.tagline} wow animate__fadeInUp`} data-wow-delay="0.15s">
-            Reveal-on-scroll animations with the <b>same API</b> as WOW.js — rebuilt for React/Next.js.
+
+          <p
+            className={`${styles.tagline} wow animate__fadeInUp`}
+            data-wow-delay="0.15s"
+          >
+            Reveal-on-scroll animations with the <b>same API</b> as WOW.js —
+            rebuilt for React/Next.js.
           </p>
 
-          <div className={`${styles.actions} wow animate__fadeInUp`} data-wow-delay="0.25s">
-            <a className={styles.btn} href="https://www.npmjs.com/package/@moondev/next-wow" target="_blank" rel="noreferrer">npm</a>
-            <a className={styles.btn} href="https://github.com/saydejabbour/next-wow" target="_blank" rel="noreferrer">GitHub</a>
-            <a className={styles.btn} href="https://wowjs.uk/docs" target="_blank" rel="noreferrer">WOW.js Config</a>
+          <div
+            className={`${styles.actions} wow animate__fadeInUp`}
+            data-wow-delay="0.25s"
+          >
+            <a
+              className={styles.btn}
+              href="https://www.npmjs.com/package/@moondev/next-wow"
+              target="_blank"
+              rel="noreferrer"
+            >
+              npm
+            </a>
+            <a
+              className={styles.btn}
+              href="https://github.com/saydejabbour/next-wow"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+            <a
+              className={styles.btn}
+              href="https://wowjs.uk/docs"
+              target="_blank"
+              rel="noreferrer"
+            >
+              WOW.js Config
+            </a>
           </div>
 
-          <div className={`${styles.badges} wow animate__fadeIn`} data-wow-delay="0.35s">
+          <div
+            className={`${styles.badges} wow animate__fadeIn`}
+            data-wow-delay="0.35s"
+          >
             <span className={styles.badge}>Hooks + TypeScript</span>
             <span className={styles.badge}>No jQuery</span>
             <span className={styles.badge}>Animate.css v4</span>
             <span className={styles.badge}>Same options as WOW.js</span>
           </div>
 
-          <div className="wow animate__fadeInUp" data-wow-delay="0.45s" style={{ marginTop: 18 }}>
+          <div
+            className="wow animate__fadeInUp"
+            data-wow-delay="0.45s"
+            style={{ marginTop: 18 }}
+          >
             <pre className={styles.code}>
 {`npm i @moondev/next-wow
 
@@ -47,8 +91,13 @@ const wow = useWOW({ animateClass: "animate__animated" });`}
 
       {/* BASIC EXAMPLES */}
       <section className={styles.section}>
-        <h2 className={`${styles.sectionTitle} wow animate__fadeInUp`}>Basic Reveals</h2>
-        <div className={`${styles.grid} wow animate__fadeIn`} data-wow-delay="0.1s">
+        <h2 className={`${styles.sectionTitle} wow animate__fadeInUp`}>
+          Basic Reveals
+        </h2>
+        <div
+          className={`${styles.grid} wow animate__fadeIn`}
+          data-wow-delay="0.1s"
+        >
           <Card title="Fade In Up" anim="animate__fadeInUp" delay="0.05s" />
           <Card title="Fade In Right" anim="animate__fadeInRight" delay="0.15s" />
           <Card title="Fade In Left" anim="animate__fadeInLeft" delay="0.25s" />
@@ -59,20 +108,42 @@ const wow = useWOW({ animateClass: "animate__animated" });`}
 
       {/* ATTENTION SEEKERS */}
       <section className={styles.section}>
-        <h2 className={`${styles.sectionTitle} wow animate__fadeInUp`}>Attention Seekers</h2>
-        <p className="wow animate__fadeInUp" data-wow-delay="0.1s">Staggered via <code>data-wow-delay</code>.</p>
+        <h2 className={`${styles.sectionTitle} wow animate__fadeInUp`}>
+          Attention Seekers
+        </h2>
+        <p
+          className="wow animate__fadeInUp"
+          data-wow-delay="0.1s"
+        >
+          Staggered via <code>data-wow-delay</code>.
+        </p>
         <div className={styles.badges}>
           {[
-            "animate__bounce","animate__flash","animate__pulse","animate__rubberBand",
-            "animate__shakeX","animate__tada","animate__wobble","animate__jello","animate__heartBeat"
+            "animate__bounce",
+            "animate__flash",
+            "animate__pulse",
+            "animate__rubberBand",
+            "animate__shakeX",
+            "animate__tada",
+            "animate__wobble",
+            "animate__jello",
+            "animate__heartBeat",
           ].map((anim, i) => (
-            <span key={anim} className={`wow ${anim} ${styles.badge}`} data-wow-delay={`${0.05 * i}s`} data-wow-iteration="2">
+            <span
+              key={anim}
+              className={`wow ${anim} ${styles.badge}`}
+              data-wow-delay={`${0.05 * i}s`}
+              data-wow-iteration="2"
+            >
               {anim.replace("animate__", "")}
             </span>
           ))}
         </div>
-        <span className={`wow animate__fadeIn ${styles.small}`} data-wow-delay="0.25s">
-          Repeats twice using <code>data-wow-iteration="2"</code>
+        <span
+          className={`wow animate__fadeIn ${styles.small}`}
+          data-wow-delay="0.25s"
+        >
+          Repeats twice using <code>data-wow-iteration=&quot;2&quot;</code>
         </span>
       </section>
 
@@ -80,13 +151,22 @@ const wow = useWOW({ animateClass: "animate__animated" });`}
 
       {/* LAYOUT / IMAGE STYLE */}
       <section className={styles.section}>
-        <h2 className={`${styles.sectionTitle} wow animate__fadeInUp`}>Layout Examples</h2>
+        <h2 className={`${styles.sectionTitle} wow animate__fadeInUp`}>
+          Layout Examples
+        </h2>
         <div className={styles.imgGrid}>
           <ImgCard title="Zoom In" anim="animate__zoomIn" delay="0.05s" />
           <ImgCard title="Back In Up" anim="animate__backInUp" delay="0.15s" />
-          <ImgCard title="Light Speed Right" anim="animate__lightSpeedInRight" delay="0.25s" />
+          <ImgCard
+            title="Light Speed Right"
+            anim="animate__lightSpeedInRight"
+            delay="0.25s"
+          />
         </div>
-        <span className={`wow animate__fadeIn ${styles.small}`} data-wow-delay="0.35s">
+        <span
+          className={`wow animate__fadeIn ${styles.small}`}
+          data-wow-delay="0.35s"
+        >
           Try <code>data-wow-duration</code> / <code>data-wow-offset</code>
         </span>
       </section>
@@ -95,11 +175,23 @@ const wow = useWOW({ animateClass: "animate__animated" });`}
 
       {/* DURATION + DELAY */}
       <section className={styles.section}>
-        <h2 className={`${styles.sectionTitle} wow animate__fadeInUp`}>Duration & Delay</h2>
+        <h2 className={`${styles.sectionTitle} wow animate__fadeInUp`}>
+          Duration &amp; Delay
+        </h2>
         <div className={styles.grid}>
           <Card title="Zoom 0.6s" anim="animate__zoomIn" duration="0.6s" />
-          <Card title="Zoom 1.2s / .2s delay" anim="animate__zoomIn" duration="1.2s" delay="0.2s" />
-          <Card title="Zoom 2s / offset 80" anim="animate__zoomIn" duration="2s" offset="80" />
+          <Card
+            title="Zoom 1.2s / .2s delay"
+            anim="animate__zoomIn"
+            duration="1.2s"
+            delay="0.2s"
+          />
+          <Card
+            title="Zoom 2s / offset 80"
+            anim="animate__zoomIn"
+            duration="2s"
+            offset="80"
+          />
         </div>
       </section>
     </main>
@@ -107,8 +199,18 @@ const wow = useWOW({ animateClass: "animate__animated" });`}
 }
 
 function Card({
-  title, anim, delay, duration, offset,
-}: { title:string; anim:string; delay?:string; duration?:string; offset?:string }) {
+  title,
+  anim,
+  delay,
+  duration,
+  offset,
+}: {
+  title: string;
+  anim: string;
+  delay?: string;
+  duration?: string;
+  offset?: string;
+}) {
   return (
     <div
       className={`wow ${anim} ${styles.card}`}
@@ -119,17 +221,43 @@ function Card({
       {title}
       <div className={styles.meta}>
         class: <code>{anim}</code>
-        {duration ? <> · duration <code>{duration}</code></> : null}
-        {delay ? <> · delay <code>{delay}</code></> : null}
-        {offset ? <> · offset <code>{offset}</code></> : null}
+        {duration ? (
+          <>
+            {" "}
+            · duration <code>{duration}</code>
+          </>
+        ) : null}
+        {delay ? (
+          <>
+            {" "}
+            · delay <code>{delay}</code>
+          </>
+        ) : null}
+        {offset ? (
+          <>
+            {" "}
+            · offset <code>{offset}</code>
+          </>
+        ) : null}
       </div>
     </div>
   );
 }
 
-function ImgCard({ title, anim, delay }:{ title:string; anim:string; delay?:string }) {
+function ImgCard({
+  title,
+  anim,
+  delay,
+}: {
+  title: string;
+  anim: string;
+  delay?: string;
+}) {
   return (
-    <div className={`wow ${anim} ${styles.imgCard}`} {...(delay ? { "data-wow-delay": delay } : {})}>
+    <div
+      className={`wow ${anim} ${styles.imgCard}`}
+      {...(delay ? { "data-wow-delay": delay } : {})}
+    >
       {title}
     </div>
   );
