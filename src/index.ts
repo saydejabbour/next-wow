@@ -1,9 +1,7 @@
-// src/index.ts
-"use client";
-export { WOW } from "./wow";
-export { WOWProvider } from "./components/WOWProvider";
-export { useWOW } from "./hooks/useWOW";
+// side-effect import so users don’t have to
+import "animate.css";
 
-// Default export to match classic WOW.js usage
-import { WOW as WOWClass } from "./wow";
-export default WOWClass;
+export { useWOW } from "./hooks/useWOW";
+export { WOWProvider } from "./components/WOWProvider"; 
+export { WOW } from "./wow";                             
+export type { WOWOptions } from "./wow";                 

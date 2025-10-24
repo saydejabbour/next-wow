@@ -1,6 +1,6 @@
 {
   "name": "@moondev/next-wow",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "React-based WOW.js — Reveal animations on scroll for React and Next.js",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -28,7 +28,10 @@
     "wowjs",
     "scroll animation",
     "nextjs",
-    "animate.css"
+    "animate.css",
+    "reveal on scroll",
+    "animation hook",
+    "typescript"
   ],
   "author": "MoonDev",
   "license": "MIT",
@@ -44,12 +47,18 @@
     "react": "^18 || ^19",
     "react-dom": "^18 || ^19"
   },
+  "dependencies": {
+    "animate.css": "^4.1.1"
+  },
   "devDependencies": {
     "typescript": "^5",
     "tsup": "^8",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0"
   },
+  "sideEffects": [
+    "animate.css"
+  ],
   "publishConfig": {
     "access": "public"
   }
