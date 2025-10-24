@@ -1,16 +1,17 @@
 // example/app/layout.tsx
+import type { Metadata } from "next";
 import "animate.css";
-import { WOWProvider } from "@moondev/next-wow";
+
+export const metadata: Metadata = {
+  title: "Next WoW Demo",
+  description: "Reveal-on-scroll animations for React/Next.js (WOW.js API).",
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+ 
   return (
     <html lang="en">
-      <body>
-        <WOWProvider options={{ animateClass: "animate__animated" }}>
-          {children}
-        </WOWProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
-
