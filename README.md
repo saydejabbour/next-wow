@@ -41,7 +41,7 @@ export default function Page() {
 ⚙️ Configuration (same as WOW.js)
 
 Next WoW mirrors WOW.js options and data attributes.
-👉 View Full Configuration on WOW.js Docs 
+👉 View Full Configuration on WOW.js Docs (https://wowjs.uk/docs)
 
 🧪 Demo
 
