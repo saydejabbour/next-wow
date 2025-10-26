@@ -16,33 +16,42 @@ npm install @moondev/next-wow
 
 
 🔧 Basic Usage
-Use the useWOW hook anywhere in your React or Next.js App Router components.
-It automatically initializes scroll-based animations and works with Animate.css v4 classes.
 
-tsx
-Copy code
+Use the useWOW() hook anywhere in your React or Next.js App Router components.
+It automatically initializes scroll-based animations using the classic WOW.js syntax by default (no custom class needed).
+
 "use client";
 
 import { useWOW } from "@moondev/next-wow";
 
 export default function Page() {
-  useWOW({ animateClass: "animate__animated" });
+  // Default usage — same behavior as WOW.js
+  useWOW();
 
   return (
     <main>
-      <h1 className="wow animate__fadeInUp">Next WoW Demo</h1>
-      <p className="wow animate__fadeIn" data-wow-delay="0.2s">
+      <h1 className="wow fadeInUp">Next WoW Demo</h1>
+      <p className="wow fadeIn" data-wow-delay="0.2s">
         Reveal on scroll with the same API as WOW.js.
       </p>
     </main>
   );
 }
 
+
+💡 Optional: If you’re using Animate.css v4, you can enable prefixed classes like this:
+
+useWOW({ animateClass: "animate__animated" });
+
+
+Then use:
+
+<div class="wow animate__fadeInUp"></div>
+
 ⚙️ Configuration (same as WOW.js)
 
 Next WoW mirrors WOW.js options and data attributes.
-👉 View Full Configuration on WOW.js Docs (https://wowjs.uk/docs)
-
+👉 View Full Configuration on WOW.js Docs
 🧪 Demo
 
 Live Demo: next-wow-zeta.vercel.app
