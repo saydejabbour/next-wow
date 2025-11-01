@@ -1,68 +1,48 @@
-// example/app/page.tsx
-/* eslint-disable react/no-unescaped-entities */
 "use client";
-
 import { useWOW } from "@moondev/next-wow";
-import styles from "./page.module.css";
+import Link from "next/link";
+import CodeBlock from "./_components/CodeBlock";
+import FeatureCard from "./_components/FeatureCard";
 
 export default function Home() {
-  // Initialize WOW — default uses "animated" class internally (WOW.js style)
-  useWOW();
+  // IMPORTANT: v4 Animate.css class
+  useWOW({ animateClass: "animate__animated" });
 
   return (
-    <main className={styles.container}>
+    <main className="section space-y-28 py-14">
       {/* HERO */}
-      <section className={`${styles.heroWrap} wow fadeIn`} data-wow-duration="0.7s">
-        <div className={styles.hero}>
-          <h1
-            className="wow fadeInUp"
-            data-wow-delay="0.05s"
-            style={{ fontSize: 44, fontWeight: 900 }}
-          >
-            <span className={styles.gradientText}>Next WoW</span>
-          </h1>
+      <section className="max-w-5xl mx-auto text-center">
+        <div className="mb-5 flex flex-wrap justify-center gap-2">
+          <span className="badge">TypeScript Ready</span>
+          <span className="badge">~32.5 kB</span>
+          <span className="badge">Animate.css v4 Included</span>
+        </div>
 
-          <p className="wow fadeInUp" data-wow-delay="0.15s">
-            Reveal-on-scroll animations with the <b>same API</b> as WOW.js — rebuilt for React/Next.js.
-          </p>
+       <h1
+  className="wow animate__fadeInUp text-center leading-tight text-cycle"
+  data-wow-delay="0.05s"
+  style={{
+    fontSize: "clamp(2.5rem,6vw,4.5rem)",
+    fontWeight: 700,           // medium-bold (not extra bold)
+    letterSpacing: "-0.02em",
+  }}
+>
+  Reveal animations for React & Next.js — WOW.js API
+</h1>
 
-          <div className={`${styles.actions} wow fadeInUp`} data-wow-delay="0.25s">
-            <a
-              className={styles.btn}
-              href="https://www.npmjs.com/package/@moondev/next-wow"
-              target="_blank"
-              rel="noreferrer"
-            >
-              npm
-            </a>
-            <a
-              className={styles.btn}
-              href="https://github.com/saydejabbour/next-wow"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GitHub
-            </a>
-            <a
-              className={styles.btn}
-              href="https://wowjs.uk/docs"
-              target="_blank"
-              rel="noreferrer"
-            >
-              WOW.js Config
-            </a>
-          </div>
+        <p className="mt-4 text-white/70 wow animate__fadeInUp" data-wow-delay="0.15s">
+          <b>@moondev/next-wow</b> is a modern React re-implementation of WOW.js.
+          Same options, rebuilt with hooks, ready for Next.js.
+        </p>
 
-          <div className={`${styles.badges} wow fadeIn`} data-wow-delay="0.35s">
-            <span className={styles.badge}>Hooks + TypeScript</span>
-            <span className={styles.badge}>No jQuery</span>
-            <span className={styles.badge}>Animate.css v4 (optional)</span>
-            <span className={styles.badge}>Same options as WOW.js</span>
-          </div>
+        <div className="mt-7 flex flex-wrap justify-center gap-3 wow animate__fadeInUp" data-wow-delay="0.25s">
+          <a className="btn" href="https://www.npmjs.com/package/@moondev/next-wow" target="_blank">Install from npm</a>
+          <a className="btn-ghost" href="https://github.com/saydejabbour/next-wow" target="_blank">View on GitHub</a>
+          <Link className="btn-ghost" href="/demos">Live Demos</Link>
+        </div>
 
-          <div className="wow fadeInUp" data-wow-delay="0.45s" style={{ marginTop: 18 }}>
-            <pre className={styles.code}>
-{`npm i @moondev/next-wow
+        <div className="mt-8 wow animate__fadeInUp" data-wow-delay="0.35s">
+          <CodeBlock code={`npm i @moondev/next-wow
 
 import { useWOW } from "@moondev/next-wow";
 
@@ -70,132 +50,34 @@ import { useWOW } from "@moondev/next-wow";
 useWOW();
 
 // Optional: use Animate.css v4 syntax
-useWOW({ animateClass: "animate__animated" });`}
-            </pre>
-          </div>
+useWOW({ animateClass: "animate__animated" });`} />
         </div>
       </section>
 
-      <div className={styles.spacer} />
-
-      {/* BASIC EXAMPLES */}
-      <section className={styles.section}>
-        <h2 className={`${styles.sectionTitle} wow fadeInUp`}>Basic Reveals</h2>
-        <div className={`${styles.grid} wow fadeIn`} data-wow-delay="0.1s">
-          <Card title="Fade In Up" anim="fadeInUp" delay="0.05s" />
-          <Card title="Fade In Right" anim="fadeInRight" delay="0.15s" />
-          <Card title="Fade In Left" anim="fadeInLeft" delay="0.25s" />
+      {/* FEATURES with hover (CSS Code Generators vibe) */}
+      <section>
+        <h2 className="h2 mb-6 text-center wow animate__fadeInUp">Why Next WoW?</h2>
+       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 items-stretch auto-rows-fr">
+          <FeatureCard title="Real-time Preview" icon={"⚡"}
+            desc="Watch animations fire as you scroll—no refresh." />
+          <FeatureCard title="TypeScript & Tailwind" icon={"📘"}
+            desc="Typed API and Tailwind-first examples." />
+          <FeatureCard title="One-Click Copy" icon={"📄"}
+            desc="Copy install/usage snippets instantly." />
+          <FeatureCard title="Ready-made Examples" icon={"🎛️"}
+            desc="Stagger, images, lists, offset, more." />
+          <FeatureCard title="100% Free Forever" icon={"💯"}
+            desc="Open-source, MIT, no limits." />
+          <FeatureCard title="No Sign-up Required" icon={"🚀"}
+            desc="Start now — just npm i." />
         </div>
       </section>
 
-      <div className={styles.spacer} />
-
-      {/* ATTENTION SEEKERS */}
-      <section className={styles.section}>
-        <h2 className={`${styles.sectionTitle} wow fadeInUp`}>Attention Seekers</h2>
-        <p className="wow fadeInUp" data-wow-delay="0.1s">
-          Staggered via <code>data-wow-delay</code>.
-        </p>
-        <div className={styles.badges}>
-          {[
-            "bounce",
-            "flash",
-            "pulse",
-            "rubberBand",
-            "shakeX",
-            "tada",
-            "wobble",
-            "jello",
-            "heartBeat",
-          ].map((anim, i) => (
-            <span
-              key={anim}
-              className={`wow ${anim} ${styles.badge}`}
-              data-wow-delay={`${0.05 * i}s`}
-              data-wow-iteration="2"
-            >
-              {anim}
-            </span>
-          ))}
-        </div>
-        <span className={`wow fadeIn ${styles.small}`} data-wow-delay="0.25s">
-          Repeats twice using <code>data-wow-iteration="2"</code>
-        </span>
-      </section>
-
-      <div className={styles.spacer} />
-
-      {/* LAYOUT / IMAGE STYLE */}
-      <section className={styles.section}>
-        <h2 className={`${styles.sectionTitle} wow fadeInUp`}>Layout Examples</h2>
-        <div className={styles.imgGrid}>
-          <ImgCard title="Zoom In" anim="zoomIn" delay="0.05s" />
-          <ImgCard title="Back In Up" anim="backInUp" delay="0.15s" />
-          <ImgCard title="Light Speed Right" anim="lightSpeedInRight" delay="0.25s" />
-        </div>
-        <span className={`wow fadeIn ${styles.small}`} data-wow-delay="0.35s">
-          Try <code>data-wow-duration</code> / <code>data-wow-offset</code>
-        </span>
-      </section>
-
-      <div className={styles.spacer} />
-
-      {/* DURATION + DELAY */}
-      <section className={styles.section}>
-        <h2 className={`${styles.sectionTitle} wow fadeInUp`}>Duration & Delay</h2>
-        <div className={styles.grid}>
-          <Card title="Zoom 0.6s" anim="zoomIn" duration="0.6s" />
-          <Card title="Zoom 1.2s / .2s delay" anim="zoomIn" duration="1.2s" delay="0.2s" />
-          <Card title="Zoom 2s / offset 80" anim="zoomIn" duration="2s" offset="80" />
-        </div>
+      {/* CTA */}
+      <section className="text-center space-x-3">
+        <Link className="btn" href="/demos">Explore Demos</Link>
+        <Link className="btn-ghost" href="/docs">Read Docs</Link>
       </section>
     </main>
-  );
-}
-
-function Card({
-  title,
-  anim,
-  delay,
-  duration,
-  offset,
-}: {
-  title: string;
-  anim: string;
-  delay?: string;
-  duration?: string;
-  offset?: string;
-}) {
-  return (
-    <div
-      className={`wow ${anim} ${styles.card}`}
-      {...(delay ? { "data-wow-delay": delay } : {})}
-      {...(duration ? { "data-wow-duration": duration } : {})}
-      {...(offset ? { "data-wow-offset": offset } : {})}
-    >
-      {title}
-      <div className={styles.meta}>
-        class: <code>{anim}</code>
-        {duration ? <> · duration <code>{duration}</code></> : null}
-        {delay ? <> · delay <code>{delay}</code></> : null}
-        {offset ? <> · offset <code>{offset}</code></> : null}
-      </div>
-    </div>
-  );
-}
-
-function ImgCard({
-  title,
-  anim,
-  delay,
-}: {
-  title: string;
-  anim: string;
-  delay?: string;
-}) {
-  return (
-    <div className={`wow ${anim} ${styles.imgCard}`} {...(delay ? { "data-wow-delay": delay } : {})}>
-      {title}
-    </div>
   );
 }
